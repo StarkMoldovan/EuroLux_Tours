@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EuroLux Tours | Premium European Experiences</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        .cta-button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1485081669829-bacb8c7bb1f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Tours Section */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            font-size: 36px;
+            color: #2c3e50;
+        }
+        
+        .tours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .tour-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .tour-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .tour-image {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .tour-content {
+            padding: 25px;
+        }
+        
+        .tour-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .tour-description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        
+        .tour-details {
+            margin-bottom: 20px;
+        }
+        
+        .tour-details h4 {
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+        
+        .tour-details ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .tour-details li {
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .tour-details li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .tour-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #2c3e50;
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: #34495e;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #7f8c8d;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .author-name {
+            font-weight: 600;
+        }
+        
+        /* Booking Section */
+        .booking {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .booking-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #f8f9fa;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .booking-info {
+            margin-bottom: 30px;
+        }
+        
+        .booking-info h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 28px;
+        }
+        
+        .booking-info p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .telegram-booking {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #e8f4fc;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .telegram-booking i {
+            font-size: 48px;
+            color: #0088cc;
+            margin-bottom: 20px;
+        }
+        
+        .telegram-booking h4 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .telegram-booking p {
+            margin-bottom: 20px;
+            max-width: 500px;
+        }
+        
+        .telegram-username {
+            background-color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .telegram-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #0088cc;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        .telegram-button i {
+            font-size: 20px;
+            color: white;
+            margin-right: 10px;
+            margin-bottom: 0;
+        }
+        
+        .telegram-button:hover {
+            background-color: #0077b5;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Euro<span>Lux</span> Tours</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#tours">Tours</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#booking">Book Now</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="#booking" class="cta-button">Book Your Tour</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Experience Europe Like Never Before</h1>
+            <p>Luxury European tours crafted for American travelers seeking authentic experiences with premium comfort and convenience.</p>
+            <a href="#booking" class="cta-button">Book Your Tour</a>
+        </div>
+    </section>
+
+    <!-- Tours Section -->
+    <section id="tours">
+        <div class="container">
+            <h2 class="section-title">Our Signature European Tours</h2>
+            <div class="tours-grid">
+                <!-- Tour 1 -->
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1502602898536-47ad22581b52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80')"></div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Grand European Capitals</h3>
+                        <p class="tour-description">Experience the magic of Paris, Rome, and Amsterdam in this 12-day luxury tour.</p>
+                        <div class="tour-details">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Paris (3 nights), Rome (4 nights), Amsterdam (3 nights)</li>
+                                <li>4-star hotels with breakfast included</li>
+                                <li>Guided tours of Eiffel Tower, Colosseum, and Anne Frank House</li>
+                                <li>Daily breakfast, 4 gourmet dinners</li>
+                                <li>Private transfers between cities</li>
+                            </ul>
+                        </div>
+                        <div class="tour-price">$3,799 per person</div>
+                        <a href="#booking" class="cta-button">Book Now</a>
+                    </div>
+                </div>
+                
+                <!-- Tour 2 -->
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1523531294919-4bcd7c65e216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Mediterranean Dream</h3>
+                        <p class="tour-description">Sail the stunning coasts of Spain, France, and Italy in this 10-day journey.</p>
+                        <div class="tour-details">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Barcelona (3 nights), French Riviera (3 nights), Amalfi Coast (3 nights)</li>
+                                <li>Luxury seaside resorts with ocean views</li>
+                                <li>Boat excursions along Mediterranean coast</li>
+                                <li>Daily breakfast, 5 gourmet dinners with local wine</li>
+                                <li>Cooking class in Positano</li>
+                            </ul>
+                        </div>
+                        <div class="tour-price">$4,299 per person</div>
+                        <a href="#booking" class="cta-button">Book Now</a>
+                    </div>
+                </div>
+                
+                <!-- Tour 3 -->
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80')"></div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Alpine Adventure</h3>
+                        <p class="tour-description">Explore the breathtaking Swiss and Austrian Alps in this 9-day mountain retreat.</p>
+                        <div class="tour-details">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Interlaken (3 nights), Zermatt (3 nights), Innsbruck (2 nights)</li>
+                                <li>Luxury mountain lodges with spa access</li>
+                                <li>Cable car rides and scenic train journeys</li>
+                                <li>Daily breakfast, traditional Alpine dinners</li>
+                                <li>Private guided hikes and optional ski lessons</li>
+                            </ul>
+                        </div>
+                        <div class="tour-price">$3,499 per person</div>
+                        <a href="#booking" class="cta-button">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Tour 4 -->
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1592394675770-78c92d82d456?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Eastern European Discovery</h3>
+                        <p class="tour-description">Discover the hidden gems of Prague, Budapest, and Vienna in this 11-day cultural journey.</p>
+                        <div class="tour-details">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Prague (4 nights), Budapest (4 nights), Vienna (2 nights)</li>
+                                <li>Boutique hotels in historic centers</li>
+                                <li>Guided tours of Prague Castle, Parliament, and Schönbrunn Palace</li>
+                                <li>Daily breakfast, traditional dinners with local specialties</li>
+                                <li>River cruise on the Danube</li>
+                            </ul>
+                        </div>
+                        <div class="tour-price">$3,199 per person</div>
+                        <a href="#booking" class="cta-button">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Tour 5 -->
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2068&q=80')"></div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">Scandinavian Highlights</h3>
+                        <p class="tour-description">Experience the natural beauty and modern design of Scandinavia in this 10-day tour.</p>
+                        <div class="tour-details">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Copenhagen (3 nights), Stockholm (3 nights), Oslo (3 nights)</li>
+                                <li>Design hotels with Scandinavian breakfast</li>
+                                <li>Guided tours of Tivoli Gardens, Vasa Museum, and Viking Ship Museum</li>
+                                <li>Daily breakfast, Nordic cuisine dinners</li>
+                                <li>Fjord cruise and archipelago boat tour</li>
+                            </ul>
+                        </div>
+                        <div class="tour-price">$3,899 per person</div>
+                        <a href="#booking" class="cta-button">Book Now</a>
+                    </div>
+                </div>
+
+                <!-- Tour 6 -->
+                <div class="tour-card">
+                    <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1580502304784-8985b7eb7260?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"></div>
+                    <div class="tour-content">
+                        <h3 class="tour-title">British Isles Explorer</h3>
+                        <p class="tour-description">Journey through England, Scotland, and Ireland in this 14-day cultural adventure.</p>
+                        <div class="tour-details">
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>London (4 nights), Edinburgh (3 nights), Dublin (3 nights), countryside (3 nights)</li>
+                                <li>Historic hotels and charming country inns</li>
+                                <li>Guided tours of Buckingham Palace, Edinburgh Castle, and Guinness Storehouse</li>
+                                <li>Daily breakfast, traditional pub dinners</li>
+                                <li>Private coach transportation throughout</li>
+                            </ul>
+                        </div>
+                        <div class="tour-price">$4,599 per person</div>
+                        <a href="#booking" class="cta-button">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Travelers Say</h2>
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The Grand European Capitals tour exceeded all our expectations. The attention to detail and premium experiences made it worth every penny. We'll definitely book with EuroLux again!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JD</div>
+                        <div>
+                            <div class="author-name">Jennifer Davis</div>
+                            <div>New York, NY</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"As frequent travelers, we've experienced many tour companies, but EuroLux stands out. The Mediterranean Dream was perfectly paced with just the right mix of relaxation and exploration."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div>
+                            <div class="author-name">Michael Roberts</div>
+                            <div>Chicago, IL</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The Alpine Adventure was a dream come true. The accommodations were luxurious, the guides were knowledgeable, and the entire experience felt exclusive and personalized."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SW</div>
+                        <div>
+                            <div class="author-name">Sarah Wilson</div>
+                            <div>Los Angeles, CA</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"We loved the Eastern European Discovery tour. The mix of history, culture, and beautiful architecture was perfect. The hotels were charming and the local guides were exceptional."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">TJ</div>
+                        <div>
+                            <div class="author-name">Thomas Johnson</div>
+                            <div>Houston, TX</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking" id="booking">
+        <div class="container">
+            <h2 class="section-title">Book Your European Adventure</h2>
+            <div class="booking-container">
+                <div class="booking-info">
+                    <h3>Personalized Booking Experience</h3>
+                    <p>To ensure the perfect European tour for your preferences and needs, all bookings are handled personally by our dedicated travel manager.</p>
+                    <p>Contact us directly via Telegram to discuss available dates, customization options, and secure your booking.</p>
+                </div>
+                
+                <div class="telegram-booking">
+                    <i class="fab fa-telegram"></i>
+                    <h4>Book via Telegram</h4>
+                    <p>Contact our travel manager directly on Telegram to discuss tour options, check availability, and complete your booking.</p>
+                    <div class="telegram-username">@Pugacheva_Y</div>
+                    <a href="https://t.me/Pugacheva_Y" class="telegram-button" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                        Message on Telegram
+                    </a>
+                </div>
+                
+                <div class="payment-info">
+                    <h4>Payment Options</h4>
+                    <p>We accept various payment methods including cryptocurrency for your convenience. Our manager will provide all payment details during the booking process.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>EuroLux Tours</h3>
+                    <p>Providing premium European travel experiences for American travelers since 2015.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#tours">Tours</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#booking">Book Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li>Email: info@euroluxtours.com</li>
+                        <li>Telegram: @Pugacheva_Y</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 EuroLux Tours. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
